@@ -1,13 +1,37 @@
 <template>
   <the-header></the-header>
+  <base-spinner v-if="isLoading"></base-spinner>
 </template>
 
 <script>
+import axios from 'axios';
 import TheHeader from './components/layout/TheHeader.vue';
 
 export default {
   components: {
     TheHeader,
+  },
+  data() {
+    return {
+      isLoading: false,
+      isError: null,
+      duas: null,
+    };
+  },
+  methods: {
+    async loadDuas() {
+      this.isLoading = true;
+      try {
+        const duas = await axios.get('/api/quran');
+        this.duas = duas.data;
+      } catch (error) {
+        console.log(error);
+      }
+      this.isLoading = false;
+    },
+  },
+  created() {
+    this.loadDuas();
   },
 };
 </script>

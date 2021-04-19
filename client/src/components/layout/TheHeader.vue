@@ -51,6 +51,7 @@ img {
     justify-content: space-between;
     align-items: center;
   }
+
   nav {
     padding-left: 50px;
     padding-right: 50px;

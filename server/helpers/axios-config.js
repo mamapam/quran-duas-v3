@@ -1,7 +1,8 @@
 const axios = require('axios');
+const config = require('./config');
 
 const instance = axios.create({
-  baseURL: process.env.QURAN_API,
+  baseURL: config.quranAPI,
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',

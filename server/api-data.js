@@ -1,5 +1,4 @@
-// require('dotenv').config();
-const axios = require('./axios-config');
+const axios = require('./helpers/axios-config');
 
 const quranData = {};
 

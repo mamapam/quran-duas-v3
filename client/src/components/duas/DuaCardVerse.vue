@@ -1,20 +1,16 @@
 <template>
   <div>
     <div>
-      <img src="arabic" alt="Arabic verse" />
+      <img :src="imageSrc" alt="Arabic verse" />
     </div>
-    <p>{{ english }}</p>
     <p class="urdu">{{ urdu }}</p>
+    <p>{{ english }}</p>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    arabic: {
-      type: String,
-      required: true,
-    },
     english: {
       type: String,
       required: true,
@@ -22,6 +18,19 @@ export default {
     urdu: {
       type: String,
       required: true,
+    },
+    surahNum: {
+      type: Number,
+      required: true,
+    },
+    verseNum: {
+      type: Number,
+      required: true,
+    },
+  },
+  computed: {
+    imageSrc() {
+      return require(`../../assets/quran/${this.surahNum}_${this.verseNum}.png`);
     },
   },
 };

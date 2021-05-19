@@ -12,8 +12,11 @@
 <style scoped>
 header {
   width: 100%;
-  height: 10rem;
+  /* height: 80px; */
+  /* max-height: max-content; */
   margin: 0px;
+  /* padding-top: 50px;
+  padding-bottom: 50px; */
   background-color: #114b5f;
   color: white;
   display: flex;

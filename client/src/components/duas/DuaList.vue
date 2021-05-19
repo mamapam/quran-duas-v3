@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="duaList">
     <dua-card
       v-for="surat in duaList"
       :key="surat.id"
@@ -20,10 +20,21 @@ export default {
     DuaCard,
   },
   props: ['duaList'],
-  methods: {
-    createKey(surahNum, verseNum) {
-      return `${surahNum}_${verseNum}`;
-    },
-  },
 };
 </script>
+
+<style scoped>
+.duaList {
+  position: relative;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  background-color: #eeeeee;
+  /* padding: 2rem; */
+  margin: 2rem 2rem;
+  /* height: 150px; */
+  overflow: auto;
+  height: 95%;
+}
+</style>

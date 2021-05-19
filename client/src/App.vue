@@ -1,42 +1,18 @@
 <template>
-  <the-header></the-header>
-  <base-spinner v-if="isLoading"></base-spinner>
-  <div>
-    <dua-list :duaList="duas"></dua-list>
-  </div>
+  <main>
+    <the-header></the-header>
+    <the-body></the-body>
+  </main>
 </template>
 
 <script>
-import axios from 'axios';
 import TheHeader from './components/layout/TheHeader.vue';
-import DuaList from './components/duas/DuaList.vue';
+import TheBody from './components/layout/TheBody.vue';
 
 export default {
   components: {
     TheHeader,
-    DuaList,
-  },
-  data() {
-    return {
-      isLoading: false,
-      isError: null,
-      duas: null,
-    };
-  },
-  methods: {
-    async loadDuas() {
-      this.isLoading = true;
-      try {
-        const duas = await axios.get('/api/quran');
-        this.duas = duas.data;
-      } catch (error) {
-        console.log(error);
-      }
-      this.isLoading = false;
-    },
-  },
-  created() {
-    this.loadDuas();
+    TheBody,
   },
 };
 </script>

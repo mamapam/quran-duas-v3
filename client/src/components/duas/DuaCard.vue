@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <div>
+  <div class="card">
+    <div class="titleBar">
       <h2>{{ surahNum }}</h2>
-
       <h2>{{ surahNameEnglish }} | {{ surahNameTranslation }}</h2>
-
       <h2 class="arabic">{{ surahNameArabic }}</h2>
     </div>
-    <div>
+    <div class="duas">
       <dua-card-verse
         v-for="(verse, index) in verses.en"
         :key="verse.number"
@@ -32,6 +30,31 @@ export default {
 </script>
 
 <style scoped>
+.card {
+  height: auto;
+  /* overflow: hidden; */
+  width: 100%;
+  height: max-content;
+  padding: 2rem;
+}
+
+.titleBar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #114b5f;
+  color: white;
+  height: 4rem;
+}
+
+.duas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
 .arabic {
   font-family: 'MeQuran';
 }

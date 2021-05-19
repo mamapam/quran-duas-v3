@@ -1,4 +1,8 @@
+const { promisify } = require('util');
 const axios = require('./helpers/axios-config');
+const logger = require('./helpers/logger');
+
+const NAMESPACE = 'QURANAPI';
 
 const quranData = [];
 
@@ -17,19 +21,33 @@ const successResponse = (res) => {
     data.ur.push(response[1]);
   });
   quranData.push(data);
+  logger.info(NAMESPACE, `Completed Surah ${id}`);
 };
 
 const errorResponse = (err) => {
   const error = {};
   if (err.response) {
+    logger.error(NAMESPACE, `Error getting Surah`, err.response);
     error.data = err.response.data;
   } else if (error.request) {
+    logger.error(NAMESPACE, `Error getting Surah`, err.request);
     error.data = err.request;
   } else {
+    logger.error(NAMESPACE, `Error getting Surah`, err.message);
     error.data = err.message;
   }
   return error;
 };
+
+// const timeout = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// const timeout = (ms) =>
+//   new Promise((resolve) => {
+//     logger.info(NAMESPACE, 'A quick nap...');
+//     setTimeout(resolve, ms);
+//   });
+
+const timeout = promisify(setTimeout);
 
 const asyncAll = async () => {
   // +++++++++++++++++++ Surah 1 +++++++++++++++++++
@@ -49,6 +67,8 @@ const asyncAll = async () => {
       errorResponse(err);
     });
 
+  await timeout(1000);
+
   // +++++++++++++++++++ Surah 2 +++++++++++++++++++
   await Promise.all([
     axios.get('/ayah/2:201/editions/en.sahih,ur.ahmedali'),
@@ -62,6 +82,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 3 +++++++++++++++++++
   await Promise.all([
@@ -83,6 +105,8 @@ const asyncAll = async () => {
       errorResponse(err);
     });
 
+  await timeout(1000);
+
   // +++++++++++++++++++ Surah 5 +++++++++++++++++++
   await Promise.all([axios.get('/ayah/5:83/editions/en.sahih,ur.ahmedali')])
     .then((res) => {
@@ -91,6 +115,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 7 +++++++++++++++++++
   await Promise.all([
@@ -104,6 +130,9 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
+
   // +++++++++++++++++++ Surah 10 +++++++++++++++++++
   await Promise.all([
     axios.get('/ayah/10:85/editions/en.sahih,ur.ahmedali'),
@@ -116,7 +145,9 @@ const asyncAll = async () => {
       errorResponse(err);
     });
 
-  // // +++++++++++++++++++ Surah 11 +++++++++++++++++++
+  await timeout(1000);
+
+  // +++++++++++++++++++ Surah 11 +++++++++++++++++++
   await Promise.all([axios.get('/ayah/11:47/editions/en.sahih,ur.ahmedali')])
     .then((res) => {
       successResponse(res);
@@ -124,6 +155,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 12 +++++++++++++++++++
   await Promise.all([axios.get('/ayah/12:101/editions/en.sahih,ur.ahmedali')])
@@ -133,6 +166,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 14 +++++++++++++++++++
   await Promise.all([
@@ -147,6 +182,8 @@ const asyncAll = async () => {
       errorResponse(err);
     });
 
+  await timeout(1000);
+
   // +++++++++++++++++++ Surah 17 +++++++++++++++++++
   await Promise.all([
     axios.get('/ayah/17:24/editions/en.sahih,ur.ahmedali'),
@@ -159,6 +196,8 @@ const asyncAll = async () => {
       errorResponse(err);
     });
 
+  await timeout(1000);
+
   // +++++++++++++++++++ Surah 18 +++++++++++++++++++
   await Promise.all([axios.get('/ayah/18:10/editions/en.sahih,ur.ahmedali')])
     .then((res) => {
@@ -167,6 +206,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 20 +++++++++++++++++++
   await Promise.all([
@@ -181,6 +222,8 @@ const asyncAll = async () => {
       errorResponse(err);
     });
 
+  await timeout(1000);
+
   // +++++++++++++++++++ Surah 21 +++++++++++++++++++
   await Promise.all([
     axios.get('/ayah/21:83/editions/en.sahih,ur.ahmedali'),
@@ -192,6 +235,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 23 +++++++++++++++++++
   await Promise.all([
@@ -209,6 +254,8 @@ const asyncAll = async () => {
       errorResponse(err);
     });
 
+  await timeout(1000);
+
   // +++++++++++++++++++ Surah 25 +++++++++++++++++++
   await Promise.all([
     axios.get('/ayah/25:65/editions/en.sahih,ur.ahmedali'),
@@ -220,6 +267,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 26 +++++++++++++++++++
   await Promise.all([
@@ -239,6 +288,8 @@ const asyncAll = async () => {
       errorResponse(err);
     });
 
+  await timeout(1000);
+
   // +++++++++++++++++++ Surah 27 +++++++++++++++++++
   await Promise.all([axios.get('/ayah/27:19/editions/en.sahih,ur.ahmedali')])
     .then((res) => {
@@ -247,6 +298,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 28 +++++++++++++++++++
   await Promise.all([
@@ -262,6 +315,8 @@ const asyncAll = async () => {
       errorResponse(err);
     });
 
+  await timeout(1000);
+
   // +++++++++++++++++++ Surah 29 +++++++++++++++++++
   await Promise.all([axios.get('/ayah/29:30/editions/en.sahih,ur.ahmedali')])
     .then((res) => {
@@ -270,6 +325,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 35 +++++++++++++++++++
   await Promise.all([axios.get('/ayah/35:34/editions/en.sahih,ur.ahmedali')])
@@ -280,6 +337,8 @@ const asyncAll = async () => {
       errorResponse(err);
     });
 
+  await timeout(1000);
+
   // +++++++++++++++++++ Surah 37 +++++++++++++++++++
   await Promise.all([axios.get('/ayah/37:100/editions/en.sahih,ur.ahmedali')])
     .then((res) => {
@@ -288,6 +347,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 40 +++++++++++++++++++
   await Promise.all([
@@ -302,6 +363,8 @@ const asyncAll = async () => {
       errorResponse(err);
     });
 
+  await timeout(1000);
+
   // +++++++++++++++++++ Surah 44 +++++++++++++++++++
   await Promise.all([axios.get('/ayah/44:12/editions/en.sahih,ur.ahmedali')])
     .then((res) => {
@@ -310,6 +373,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 46 +++++++++++++++++++
   await Promise.all([axios.get('/ayah/46:15/editions/en.sahih,ur.ahmedali')])
@@ -320,6 +385,8 @@ const asyncAll = async () => {
       errorResponse(err);
     });
 
+  await timeout(1000);
+
   // +++++++++++++++++++ Surah 59 +++++++++++++++++++
   await Promise.all([axios.get('/ayah/59:10/editions/en.sahih,ur.ahmedali')])
     .then((res) => {
@@ -328,6 +395,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 60 +++++++++++++++++++
   await Promise.all([
@@ -340,6 +409,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 66 +++++++++++++++++++
   await Promise.all([
@@ -355,6 +426,8 @@ const asyncAll = async () => {
       errorResponse(err);
     });
 
+  await timeout(1000);
+
   // +++++++++++++++++++ Surah 71 +++++++++++++++++++
   await Promise.all([axios.get('/ayah/71:28/editions/en.sahih,ur.ahmedali')])
     .then((res) => {
@@ -363,6 +436,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 112 +++++++++++++++++++
   await Promise.all([
@@ -378,6 +453,8 @@ const asyncAll = async () => {
       errorResponse(err);
     });
 
+  await timeout(1000);
+
   // +++++++++++++++++++ Surah 113 +++++++++++++++++++
   await Promise.all([
     axios.get('/ayah/113:1/editions/en.sahih,ur.ahmedali'),
@@ -392,6 +469,8 @@ const asyncAll = async () => {
     .catch((err) => {
       errorResponse(err);
     });
+
+  await timeout(1000);
 
   // +++++++++++++++++++ Surah 114 +++++++++++++++++++
   await Promise.all([

@@ -17,22 +17,21 @@
       </svg>
     </span>
   </button>
-  <div class="content" v-if="isFilterShowing">
-    <ul>
-      <li v-for="surah in list" :key="surah.id">
-        <input
-          type="checkbox"
-          :id="surah.id"
-          :value="surah.id"
-          @change="filterStatus(surah.id, $event)"
-        />
-        <label :for="surah.id">{{ surah.name }}</label>
-      </li>
-    </ul>
-  </div>
-  <div>
-    {{ $store.getters['duas/filteredList'] }}
-  </div>
+  <transition name="fade-in">
+    <div class="content" v-if="isFilterShowing">
+      <ul>
+        <li v-for="surah in list" :key="surah.id">
+          <input
+            type="checkbox"
+            :id="surah.id"
+            :value="surah.id"
+            @change="filterStatus(surah.id, $event)"
+          />
+          <label :for="surah.id">{{ surah.name }}</label>
+        </li>
+      </ul>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -92,5 +91,25 @@ svg {
 .icon {
   display: flex;
   align-items: center;
+}
+
+.content {
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.fade-in-enter-active {
+  transition: all 0.2s ease-in-out;
+}
+
+.fade-in-leave-active {
+  transition: all 0.2s ease-in-out;
+}
+
+.fade-in-enter-from,
+.fade-in-leave-to {
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
 }
 </style>

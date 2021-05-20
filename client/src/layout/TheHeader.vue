@@ -2,7 +2,7 @@
   <nav>
     <h1>Quran Duas</h1>
     <div>
-      <img src="../../assets/images/bismillah.png" alt="Bismillah" />
+      <img src="../assets/images/bismillah.png" alt="Bismillah" />
     </div>
   </nav>
 </template>

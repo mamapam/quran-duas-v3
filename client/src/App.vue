@@ -4,8 +4,8 @@
 </template>
 
 <script>
-import TheHeader from './components/layout/TheHeader.vue';
-import TheBody from './components/layout/TheBody.vue';
+import TheHeader from './layout/TheHeader.vue';
+import TheBody from './layout/TheBody.vue';
 
 export default {
   components: {

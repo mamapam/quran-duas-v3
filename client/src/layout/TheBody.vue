@@ -1,12 +1,12 @@
 <template>
-  <section>
+  <section class="filter-section">
     <dua-filter></dua-filter>
   </section>
-  <section></section>
+  <section class="dua-section"></section>
 </template>
 
 <script>
-import DuaFilter from '../duas/DuaFilter.vue';
+import DuaFilter from '../components/duas/DuaFilter.vue';
 
 export default {
   name: 'the-body',
@@ -35,3 +35,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.filter-section {
+  width: 95%;
+  margin: 20px auto;
+}
+</style>

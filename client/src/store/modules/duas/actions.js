@@ -22,4 +22,12 @@ export default {
       console.log(error);
     }
   },
+  addToFilter(context, payload) {
+    console.log(payload);
+    context.commit('addToFilter', payload);
+  },
+  removeFromFilter(context, payload) {
+    console.log(payload);
+    context.commit('removeFromFilter', payload);
+  },
 };

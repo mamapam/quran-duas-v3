@@ -3,17 +3,21 @@
     <section class="filter-section">
       <dua-filter></dua-filter>
     </section>
-    <section class="dua-section"></section>
+    <section class="dua-section">
+      <dua-list></dua-list>
+    </section>
   </main>
 </template>
 
 <script>
 import DuaFilter from '../components/duas/DuaFilter.vue';
+import DuaList from '../components/duas/DuaList.vue';
 
 export default {
   name: 'the-body',
   components: {
     DuaFilter,
+    DuaList,
   },
   data() {
     return {

@@ -1,8 +1,10 @@
 <template>
-  <section class="filter-section">
-    <dua-filter></dua-filter>
-  </section>
-  <section class="dua-section"></section>
+  <main class="grid">
+    <section class="filter-section">
+      <dua-filter></dua-filter>
+    </section>
+    <section class="dua-section"></section>
+  </main>
 </template>
 
 <script>
@@ -37,8 +39,14 @@ export default {
 </script>
 
 <style scoped>
-.filter-section {
-  width: 95%;
-  margin: 20px auto;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+}
+
+.filter-section,
+.dua-section {
+  grid-column: 2/24;
+  margin-top: 20px;
 }
 </style>

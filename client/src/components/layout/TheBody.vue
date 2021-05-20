@@ -1,15 +1,15 @@
 <template>
   <section>
-    <dua-filter :list="filter"></dua-filter>
+    <dua-filter></dua-filter>
   </section>
   <section></section>
 </template>
 
 <script>
-import axios from 'axios';
 import DuaFilter from '../duas/DuaFilter.vue';
 
 export default {
+  name: 'the-body',
   components: {
     DuaFilter,
   },
@@ -17,23 +17,13 @@ export default {
     return {
       isLoading: false,
       isError: null,
-      duas: null,
-      filter: [],
     };
   },
   methods: {
     async loadDuas() {
       this.isLoading = true;
       try {
-        const duas = await axios.get('/api/quran');
-        this.duas = duas.data;
-        duas.data.forEach((dua) => {
-          const surah = {
-            id: dua.id,
-            name: dua.en[0].surah.englishName,
-          };
-          this.filter.push(surah);
-        });
+        await this.$store.dispatch('duas/loadDuas');
       } catch (error) {
         console.log(error);
       }

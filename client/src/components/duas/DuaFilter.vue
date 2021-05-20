@@ -12,12 +12,17 @@
 
 <script>
 export default {
-  props: ['list'],
+  name: 'dua-filter',
   data() {
     return {
-      checkedDuas: [],
       isFilterShowing: false,
     };
+  },
+  computed: {
+    list() {
+      const listOfDuas = this.$store.getters['duas/listOfDuas'];
+      return listOfDuas;
+    },
   },
   methods: {
     toggleFilter() {

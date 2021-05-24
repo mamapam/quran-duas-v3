@@ -31,4 +31,18 @@ img {
   width: 100%;
   height: 100%;
 }
+
+@media screen and (min-width: 768px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 10em;
+  }
+
+  div {
+    margin: 0;
+  }
+}
 </style>

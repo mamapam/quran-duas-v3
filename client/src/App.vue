@@ -40,4 +40,10 @@ li {
   padding: 0;
   margin: 0;
 }
+
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 20px;
+  }
+}
 </style>

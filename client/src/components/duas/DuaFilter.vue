@@ -100,7 +100,7 @@ svg {
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
   padding: 10px;
-  /* overflow-y: auto; */
+  overflow-y: auto;
   max-height: 150px;
 }
 
@@ -117,16 +117,15 @@ input {
 }
 
 .fade-in-enter-active {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in;
 }
 
 .fade-in-leave-active {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-out;
 }
 
 .fade-in-enter-from,
 .fade-in-leave-to {
   opacity: 0;
-  transition: all 0.2s ease-in-out;
 }
 </style>

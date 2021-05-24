@@ -47,7 +47,8 @@ export default {
 
 .arabic img {
   width: 95%;
-  max-width: 600px;
+  max-width: 1024px;
+  float: right;
 }
 
 .urdu {

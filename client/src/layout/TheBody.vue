@@ -65,4 +65,14 @@ export default {
 div {
   flex-grow: 1;
 }
+
+@media screen and (min-width: 1024px) {
+  .filter-section {
+    grid-column: 2/8;
+  }
+
+  .dua-section {
+    grid-column: 9/24;
+  }
+}
 </style>

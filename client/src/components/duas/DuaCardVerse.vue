@@ -35,3 +35,29 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.verses {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.arabic img {
+  width: 95%;
+  max-width: 600px;
+}
+
+.urdu {
+  font-family: 'Urdu';
+  text-align: right;
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+.english {
+  margin-bottom: 10px;
+}
+</style>

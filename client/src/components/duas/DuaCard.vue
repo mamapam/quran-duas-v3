@@ -28,3 +28,22 @@ export default {
   props: ['surahNum', 'surahNameEnglish', 'surahNameTranslation', 'surahNameArabic', 'verses'],
 };
 </script>
+
+<style scoped>
+.card {
+  background-color: white;
+}
+
+.titleBar {
+  display: flex;
+  font-size: 0.8em;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #114b5f;
+  color: white;
+}
+
+.arabic {
+  font-family: 'MeQuran';
+}
+</style>

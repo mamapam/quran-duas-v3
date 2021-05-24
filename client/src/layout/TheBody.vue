@@ -1,7 +1,9 @@
 <template>
   <main class="grid">
     <section class="filter-section">
-      <dua-filter></dua-filter>
+      <div>
+        <dua-filter></dua-filter>
+      </div>
     </section>
     <section class="dua-section">
       <dua-list></dua-list>
@@ -52,5 +54,15 @@ export default {
 .dua-section {
   grid-column: 2/24;
   margin-top: 20px;
+}
+
+.dua-section {
+  height: 75vh;
+  overflow-y: auto;
+  background-color: #eeeeee;
+  padding: 10px;
+}
+div {
+  flex-grow: 1;
 }
 </style>

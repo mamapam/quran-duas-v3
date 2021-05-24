@@ -19,17 +19,19 @@
   </button>
   <transition name="fade-in">
     <div class="content" v-if="isFilterShowing">
-      <ul>
-        <li v-for="surah in list" :key="surah.id">
-          <input
-            type="checkbox"
-            :id="surah.id"
-            :value="surah.id"
-            @change="filterStatus(surah.id, $event)"
-          />
-          <label :for="surah.id">{{ surah.name }}</label>
-        </li>
-      </ul>
+      <perfect-scrollbar>
+        <ul>
+          <li v-for="surah in list" :key="surah.id">
+            <input
+              type="checkbox"
+              :id="surah.id"
+              :value="surah.id"
+              @change="filterStatus(surah.id, $event)"
+            />
+            <label :for="surah.id">{{ surah.name }}</label>
+          </li>
+        </ul>
+      </perfect-scrollbar>
     </div>
   </transition>
 </template>
@@ -98,8 +100,12 @@ svg {
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
   padding: 10px;
-  overflow-y: auto;
-  height: 150px;
+  /* overflow-y: auto; */
+  max-height: 150px;
+}
+
+.ps {
+  max-height: 150px;
 }
 
 ul {

@@ -40,6 +40,7 @@ export default {
 .verses {
   box-sizing: border-box;
   padding: 10px;
+  margin-bottom: 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -54,11 +55,11 @@ export default {
 .urdu {
   font-family: 'Urdu';
   text-align: right;
-  margin: 10px;
+  margin: 10px 30px;
   font-size: 1.2em;
 }
 
 .english {
-  margin-bottom: 10px;
+  margin: 10px 30px;
 }
 </style>

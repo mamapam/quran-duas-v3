@@ -114,6 +114,7 @@ ul {
 
 input {
   margin: 0 10px;
+  transform: scale(1.5);
 }
 
 .fade-in-enter-active {
@@ -127,5 +128,14 @@ input {
 .fade-in-enter-from,
 .fade-in-leave-to {
   opacity: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .content {
+    max-height: 75vh;
+  }
+  .ps {
+    max-height: 75vh;
+  }
 }
 </style>

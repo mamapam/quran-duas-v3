@@ -2,7 +2,7 @@
   <perfect-scrollbar>
     <div class="duaList">
       <dua-card
-        v-for="surat in duaList"
+        v-for="surat in filteredList"
         :key="surat.id"
         :surahNum="surat.id"
         :surahNameEnglish="surat.en[0].surah.englishName"
@@ -25,6 +25,15 @@ export default {
     duaList() {
       const duaList = this.$store.getters['duas/duas'];
       return duaList;
+    },
+    filteredList() {
+      const filtered = this.$store.getters['duas/filteredList'];
+
+      if (filtered.length === 0) {
+        return this.duaList;
+      }
+      const filteredList = this.duaList.filter((surat) => filtered.includes(surat.id));
+      return filteredList;
     },
   },
 };

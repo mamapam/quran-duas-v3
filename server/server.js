@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const config = require('./helpers/config');
 const logger = require('./helpers/logger');
 const ExpressError = require('./utils/ExpressError');
@@ -8,6 +9,14 @@ const quranRoutes = require('./routes/quran');
 const app = express();
 
 const NAMESPACE = 'SERVER';
+
+const corsOptions = {
+  origin: config.client,
+};
+
+app.use(cors(corsOptions));
+
+console.log(corsOptions.origin);
 
 app.use('/api', quranRoutes);
 

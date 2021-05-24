@@ -8,12 +8,15 @@ const SERVER = {
   port: SERVER_PORT,
 };
 
+const CLIENT_HOST = process.env.CLIENT_HOST || 'http://localhost:8080';
+
 const { QURAN_API } = process.env;
 
 const { LOG_FILE } = process.env;
 
 const config = {
   server: SERVER,
+  client: CLIENT_HOST,
   quranAPI: QURAN_API,
   logFile: LOG_FILE,
 };

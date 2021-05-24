@@ -42,7 +42,6 @@ export default {
   data() {
     return {
       isFilterShowing: false,
-      checkedDuas: [],
     };
   },
   computed: {

@@ -11,12 +11,12 @@ const app = express();
 const NAMESPACE = 'SERVER';
 
 const corsOptions = {
-  origin: config.client,
+  origin: ['http://localhost:5005'],
+  optionsSuccessStatus: 200,
+  methods: 'GET',
 };
 
 app.use(cors(corsOptions));
-
-console.log(corsOptions.origin);
 
 app.use('/api', quranRoutes);
 

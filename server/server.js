@@ -11,7 +11,11 @@ const app = express();
 const NAMESPACE = 'SERVER';
 
 const corsOptions = {
-  origin: ['http://localhost:5005'],
+  origin: [
+    'http://localhost:5005',
+    'http://localhost:8080',
+    'http://localhost:5000',
+  ],
   optionsSuccessStatus: 200,
   methods: 'GET',
 };
